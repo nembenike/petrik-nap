@@ -113,10 +113,16 @@ const filteredEvents = computed(() => {
           {{ event.name }} | {{ event.expand.location.name }}
         </h2>
         <p class="text-slate-200 mb-2">{{ event.description }}</p>
-        <label for="my_modal_6" class="btn bg-[#CBA6F7] text-black"
+        <label :for="`my_modal_` + event.id" class="btn bg-[#CBA6F7] text-black"
           >Több infó</label
         >
-        <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+
+        <input
+          :id="`my_modal_` + event.id"
+          type="checkbox"
+          class="modal-toggle"
+        />
+
         <div class="modal" role="dialog">
           <div class="modal-box bg-[#1E1E2E]">
             <h3 class="font-bold text-lg text-slate-100">
@@ -132,7 +138,9 @@ const filteredEvents = computed(() => {
             </p>
             <p class="text-slate-100">{{ event.description }}</p>
             <div class="modal-action">
-              <label for="my_modal_6" class="btn bg-[#CBA6F7] text-black"
+              <label
+                :for="`my_modal_` + event.id"
+                class="btn bg-[#CBA6F7] text-black"
                 >Bezárás</label
               >
             </div>
