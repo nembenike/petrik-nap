@@ -75,12 +75,12 @@ const filteredEvents = computed(() => {
     <div class="flex flex-row justify-center items-center gap-1">
       <input
         type="text"
-        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white border-none"
+        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white outline-none"
         placeholder="Keresés..."
         v-model="searchQuery"
       />
       <select
-        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white border-none"
+        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white outline-none"
         v-model="selectedCategory"
       >
         <option value="">-</option>
