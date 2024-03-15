@@ -75,12 +75,12 @@ const filteredEvents = computed(() => {
     <div class="flex flex-row justify-center items-center gap-1">
       <input
         type="text"
-        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white"
+        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white border-none"
         placeholder="Keresés..."
         v-model="searchQuery"
       />
       <select
-        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white"
+        class="bg-[#1E1E2E] p-2 rounded-lg mt-2 text-white border-none"
         v-model="selectedCategory"
       >
         <option value="">-</option>
@@ -119,14 +119,18 @@ const filteredEvents = computed(() => {
         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
         <div class="modal" role="dialog">
           <div class="modal-box bg-[#1E1E2E]">
-            <h3 class="font-bold text-lg">
+            <h3 class="font-bold text-lg text-slate-100">
               {{ event.name }} | {{ event.expand.location.name }} |
               {{ formatTime(event.start) }} -
               {{ formatTime(event.end) }}
             </h3>
-            <p>Kategória: {{ event.expand.category.name }}</p>
-            <p class="pb-2">Szervező(k): {{ event.organizers }}</p>
-            <p>{{ event.description }}</p>
+            <p class="text-slate-100">
+              Kategória: {{ event.expand.category.name }}
+            </p>
+            <p class="pb-2 text-slate-100">
+              Szervező(k): {{ event.organizers }}
+            </p>
+            <p class="text-slate-100">{{ event.description }}</p>
             <div class="modal-action">
               <label for="my_modal_6" class="btn bg-[#CBA6F7] text-black"
                 >Bezárás</label
