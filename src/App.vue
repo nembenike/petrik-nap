@@ -11,14 +11,13 @@ const categories = ref([]);
 const searchQuery = ref("");
 const selectedCategory = ref("");
 
-import moment from "moment";
-
 const formatTime = (time) => {
   const serverTime = new Date(time);
-  const userLocalTime = moment(serverTime)
-    .local()
-    .subtract(1, "hour")
-    .format("HH:mm");
+  serverTime.setHours(serverTime.getHours() - 1);
+  const userLocalTime = serverTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   return userLocalTime;
 };
 
