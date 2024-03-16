@@ -40,6 +40,7 @@ const fetchEvents = async () => {
 
 fetchCategories();
 fetchEvents();
+console.log(events);
 
 const filteredEvents = computed(() => {
   let filtered = events.value;
@@ -112,7 +113,7 @@ const filteredEvents = computed(() => {
         <h2 class="text-2xl font-bold text-slate-200">
           {{ event.name }} | {{ event.expand.location.name }}
         </h2>
-        <p class="text-slate-200 mb-2">{{ event.description }}</p>
+        <p class="text-slate-200">{{ event.description }}</p>
         <label :for="`my_modal_` + event.id" class="btn bg-[#CBA6F7] text-black"
           >Több infó</label
         >
@@ -137,7 +138,20 @@ const filteredEvents = computed(() => {
               Szervező(k): {{ event.organizers }}
             </p>
             <p class="text-slate-100">{{ event.description }}</p>
-            <div class="modal-action">
+            <p v-if="event.isInviteOnly" class="text-red-400">
+              Erre az eseményre jelentkezni kell!⚠🐢
+            </p>
+            <div
+              class="modal-action flex flex-row mt-2 items-center justify-between"
+            >
+              <div v-if="event.isInviteOnly">
+                <a
+                  className="text-black btn bg-[#CBA6F7]"
+                  href="https://forms.gle/vCzWzVckJNoSTw6Z9"
+                  target="_blank"
+                  ><label>Jelentkezés</label></a
+                >
+              </div>
               <label
                 :for="`my_modal_` + event.id"
                 class="btn bg-[#CBA6F7] text-black"
