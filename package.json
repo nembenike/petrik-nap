@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "moment": "^2.30.1",
     "pocketbase": "^0.21.1",
     "vue": "^3.4.21"
   },
