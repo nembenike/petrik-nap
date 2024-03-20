@@ -75,6 +75,7 @@ const filteredEvents = computed(() => {
     >
       Petrik Nap
     </h1>
+    <p class="text-red-400">Az események helyszíne/időpontja még változhat!</p>
     <!-- <hr class="border-[#CBA6F7] mb-2" /> -->
     <div class="flex flex-row justify-center items-center gap-1">
       <input
@@ -95,7 +96,7 @@ const filteredEvents = computed(() => {
     </div>
   </header>
   <main>
-    <div v-if="loading" class="flex justify-center items-center">
+    <div v-if="loading" class="mt-3 flex justify-center items-center">
       <div
         class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
         role="status"
@@ -116,6 +117,7 @@ const filteredEvents = computed(() => {
         <h2 class="text-2xl font-bold text-slate-200">
           {{ event.name }} | {{ event.expand.location.name }}
         </h2>
+        <p v-if="event.isInviteOnly" class="text-red-400">Erre az eseményre jelentkezni kell!</p>
         <p class="text-slate-200">{{ event.description }}</p>
         <label :for="`my_modal_` + event.id" class="btn bg-[#CBA6F7] text-black"
           >Több infó</label
