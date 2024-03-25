@@ -43,7 +43,6 @@ const fetchEvents = async () => {
 
 fetchCategories();
 fetchEvents();
-console.log(events);
 
 const filteredEvents = computed(() => {
   let filtered = events.value;
@@ -75,7 +74,7 @@ const filteredEvents = computed(() => {
     >
       Petrik Nap
     </h1>
-    <p class="text-red-400">Az események helyszíne/időpontja még változhat!</p>
+    <p class="text-red-300">A Casino Balogh Bianka által elmarad!</p>
     <!-- <hr class="border-[#CBA6F7] mb-2" /> -->
     <div class="flex flex-row justify-center items-center gap-1">
       <input
